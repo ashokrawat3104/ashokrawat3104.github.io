@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <!-- <link rel="stylesheet" href="demo.scss"> -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.10.1/lottie.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+
+    <style>
+        .aura-text h1,
+        .profession {
+            background: linear-gradient(90deg, #38bdf8, #a855f7, #38bdf8);
+            background-size: 200% auto;
+            color: transparent;
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            -webkit-text-stroke: 1px #000000;
+            text-shadow: 0 0 10px #38bdf8;
+            animation: auraPulse 3s ease-in-out infinite, glowShift 6s linear infinite;
+        }
+
+        @keyframes glowShift {
+            0% {
+                background-position: 0% center;
+            }
+
+            100% {
+                background-position: 200% center;
+            }
+        }
+
+        /* @keyframes auraGlow {
+                0% {
+                    filter: drop-shadow(0 0 4px #38bdf8);
+                }
+
+                20% {
+                    filter: drop-shadow(0 0 6px #60a5fa);
+                }
+
+                40% {
+                    filter: drop-shadow(0 0 6px #a855f7);
+                }
+
+                60% {
+                    filter: drop-shadow(0 0 6px #f472b6);
+                }
+
+                80% {
+                    filter: drop-shadow(0 0 4px #4f69d2);
+                }
+                100% {
+                    filter: drop-shadow(0 0 4px hsl(224, 85%, 54%));
+                }
+            } */
+
+        .aura-text {
+            animation: auraGlow 3s ease-in-out infinite;
+        }
+    </style>
+
+</head>
+
+<body>
+    <!-- header Section -->
+    <header class="bg-gray-900 text-white shadow-md fixed w-full z-50">
+        <nav class="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
+            <div class="aura-text text-3xl font-extrabold ">
+                <h1>Ashok Rawat</h1>
+            </div>
+
+            <div class="flex space-x-6 text-sm font-medium items-center">
+                <a href="#home"
+                    class="flex items-center space-x-2 hover:text-sky-400 hover:drop-shadow-[0_0_6px_#38bdf8] transition duration-300 ease-in-out">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
+                        <path
+                            d="M11.47 3.841a.75.75 0 0 1 1.06 0l8.69 8.69a.75.75 0 1 0 1.06-1.061l-8.689-8.69a2.25 2.25 0 0 0-3.182 0l-8.69 8.69a.75.75 0 1 0 1.061 1.06l8.69-8.689Z" />
+                        <path
+                            d="m12 5.432 8.159 8.159c.03.03.06.058.091.086v6.198c0 1.035-.84 1.875-1.875 1.875H15a.75.75 0 0 1-.75-.75v-4.5a.75.75 0 0 0-.75-.75h-3a.75.75 0 0 0-.75.75V21a.75.75 0 0 1-.75.75H5.625a1.875 1.875 0 0 1-1.875-1.875v-6.198a2.29 2.29 0 0 0 .091-.086L12 5.432Z" />
+                    </svg>
+                    Home</a>
+                <a href="#skills"
+                    class="flex items-center space-x-2 hover:text-sky-400 hover:drop-shadow-[0_0_6px_#38bdf8] transition duration-300 ease-in-out">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
+                        <path fill-rule="evenodd"
+                            d="M12 6.75a5.25 5.25 0 0 1 6.775-5.025.75.75 0 0 1 .313 1.248l-3.32 3.319c.063.475.276.934.641 1.299.365.365.824.578 1.3.64l3.318-3.319a.75.75 0 0 1 1.248.313 5.25 5.25 0 0 1-5.472 6.756c-1.018-.086-1.87.1-2.309.634L7.344 21.3A3.298 3.298 0 1 1 2.7 16.657l8.684-7.151c.533-.44.72-1.291.634-2.309A5.342 5.342 0 0 1 12 6.75ZM4.117 19.125a.75.75 0 0 1 .75-.75h.008a.75.75 0 0 1 .75.75v.008a.75.75 0 0 1-.75.75h-.008a.75.75 0 0 1-.75-.75v-.008Z"
+                            clip-rule="evenodd" />
+                        <path
+                            d="m10.076 8.64-2.201-2.2V4.874a.75.75 0 0 0-.364-.643l-3.75-2.25a.75.75 0 0 0-.916.113l-.75.75a.75.75 0 0 0-.113.916l2.25 3.75a.75.75 0 0 0 .643.364h1.564l2.062 2.062 1.575-1.297Z" />
+                        <path fill-rule="evenodd"
+                            d="m12.556 17.329 4.183 4.182a3.375 3.375 0 0 0 4.773-4.773l-3.306-3.305a6.803 6.803 0 0 1-1.53.043c-.394-.034-.682-.006-.867.042a.589.589 0 0 0-.167.063l-3.086 3.748Zm3.414-1.36a.75.75 0 0 1 1.06 0l1.875 1.876a.75.75 0 1 1-1.06 1.06L15.97 17.03a.75.75 0 0 1 0-1.06Z"
+                            clip-rule="evenodd" />
+                    </svg>
+                    Skills</a>
+                <a href="#projects"
+                    class="flex items-center space-x-2 hover:text-sky-400 hover:drop-shadow-[0_0_6px_#38bdf8] transition duration-300 ease-in-out">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" class="size-6">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M17.25 6.75 22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3-4.5 16.5" />
+                    </svg>
+                    Projects</a>
+                <a href="#education"
+                    class="flex items-center space-x-2 hover:text-sky-400 hover:drop-shadow-[0_0_6px_#38bdf8] transition duration-300 ease-in-out">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
+                        <path
+                            d="M11.7 2.805a.75.75 0 0 1 .6 0A60.65 60.65 0 0 1 22.83 8.72a.75.75 0 0 1-.231 1.337 49.948 49.948 0 0 0-9.902 3.912l-.003.002c-.114.06-.227.119-.34.18a.75.75 0 0 1-.707 0A50.88 50.88 0 0 0 7.5 12.173v-.224c0-.131.067-.248.172-.311a54.615 54.615 0 0 1 4.653-2.52.75.75 0 0 0-.65-1.352 56.123 56.123 0 0 0-4.78 2.589 1.858 1.858 0 0 0-.859 1.228 49.803 49.803 0 0 0-4.634-1.527.75.75 0 0 1-.231-1.337A60.653 60.653 0 0 1 11.7 2.805Z" />
+                        <path
+                            d="M13.06 15.473a48.45 48.45 0 0 1 7.666-3.282c.134 1.414.22 2.843.255 4.284a.75.75 0 0 1-.46.711 47.87 47.87 0 0 0-8.105 4.342.75.75 0 0 1-.832 0 47.87 47.87 0 0 0-8.104-4.342.75.75 0 0 1-.461-.71c.035-1.442.121-2.87.255-4.286.921.304 1.83.634 2.726.99v1.27a1.5 1.5 0 0 0-.14 2.508c-.09.38-.222.753-.397 1.11.452.213.901.434 1.346.66a6.727 6.727 0 0 0 .551-1.607 1.5 1.5 0 0 0 .14-2.67v-.645a48.549 48.549 0 0 1 3.44 1.667 2.25 2.25 0 0 0 2.12 0Z" />
+                        <path
+                            d="M4.462 19.462c.42-.419.753-.89 1-1.395.453.214.902.435 1.347.662a6.742 6.742 0 0 1-1.286 1.794.75.75 0 0 1-1.06-1.06Z" />
+                    </svg>
+                    Education</a>
+                <a href="#services"
+                    class="flex items-center space-x-2 hover:text-sky-400 hover:drop-shadow-[0_0_6px_#38bdf8] transition duration-300 ease-in-out">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
+                        <path fill-rule="evenodd"
+                            d="M9 4.5a.75.75 0 0 1 .721.544l.813 2.846a3.75 3.75 0 0 0 2.576 2.576l2.846.813a.75.75 0 0 1 0 1.442l-2.846.813a3.75 3.75 0 0 0-2.576 2.576l-.813 2.846a.75.75 0 0 1-1.442 0l-.813-2.846a3.75 3.75 0 0 0-2.576-2.576l-2.846-.813a.75.75 0 0 1 0-1.442l2.846-.813A3.75 3.75 0 0 0 7.466 7.89l.813-2.846A.75.75 0 0 1 9 4.5ZM18 1.5a.75.75 0 0 1 .728.568l.258 1.036c.236.94.97 1.674 1.91 1.91l1.036.258a.75.75 0 0 1 0 1.456l-1.036.258c-.94.236-1.674.97-1.91 1.91l-.258 1.036a.75.75 0 0 1-1.456 0l-.258-1.036a2.625 2.625 0 0 0-1.91-1.91l-1.036-.258a.75.75 0 0 1 0-1.456l1.036-.258a2.625 2.625 0 0 0 1.91-1.91l.258-1.036A.75.75 0 0 1 18 1.5ZM16.5 15a.75.75 0 0 1 .712.513l.394 1.183c.15.447.5.799.948.948l1.183.395a.75.75 0 0 1 0 1.422l-1.183.395c-.447.15-.799.5-.948.948l-.395 1.183a.75.75 0 0 1-1.422 0l-.395-1.183a1.5 1.5 0 0 0-.948-.948l-1.183-.395a.75.75 0 0 1 0-1.422l1.183-.395c.447-.15.799-.5.948-.948l.395-1.183A.75.75 0 0 1 16.5 15Z"
+                            clip-rule="evenodd" />
+                    </svg>
+                    Services</a>
+                <a href="#contact"
+                    class="flex items-center space-x-2 hover:text-sky-400 hover:drop-shadow-[0_0_6px_#38bdf8] transition duration-300 ease-in-out">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
+                        <path
+                            d="M4.913 2.658c2.075-.27 4.19-.408 6.337-.408 2.147 0 4.262.139 6.337.408 1.922.25 3.291 1.861 3.405 3.727a4.403 4.403 0 0 0-1.032-.211 50.89 50.89 0 0 0-8.42 0c-2.358.196-4.04 2.19-4.04 4.434v4.286a4.47 4.47 0 0 0 2.433 3.984L7.28 21.53A.75.75 0 0 1 6 21v-4.03a48.527 48.527 0 0 1-1.087-.128C2.905 16.58 1.5 14.833 1.5 12.862V6.638c0-1.97 1.405-3.718 3.413-3.979Z" />
+                        <path
+                            d="M15.75 7.5c-1.376 0-2.739.057-4.086.169C10.124 7.797 9 9.103 9 10.609v4.285c0 1.507 1.128 2.814 2.67 2.94 1.243.102 2.5.157 3.768.165l2.782 2.781a.75.75 0 0 0 1.28-.53v-2.39l.33-.026c1.542-.125 2.67-1.433 2.67-2.94v-4.286c0-1.505-1.125-2.811-2.664-2.94A49.392 49.392 0 0 0 15.75 7.5Z" />
+                    </svg>
+                    Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Home Section -->
+    <section id="home"
+        class="relative min-h-screen bg-gradient-to-b from-gray-900 to-black text-white flex items-center justify-center overflow-hidden">
+
+        <!-- Background Centered Animation (behind everything) -->
+        <div id="lottie-home-animation2" class="absolute inset-0 w-full h-full z-1 pointer-events-none"></div>
+
+        <!-- Content Container -->
+        <div class="relative z-10 max-w-8xl w-full px-4 flex flex-col md:flex-row items-center justify-between">
+            <!-- Text Section -->
+            <div class="text-center md:text-left mb-10 md:mb-0 md:w-2/3">
+                <h2 class="text-4xl font-bold mb-4">Welcome to My Portfolio</h2>
+                <p class=" profession text-3xl font-extrabold ">I’m <strong>Ashok Rawat <br> A Web Developer</strong>
+                </p>
+
+                <a href="assets/Ashok_Rawat_Resume.pdf" download
+                    class="inline-block mt-4 px-6 py-2 bg-sky-600 text-white rounded hover:bg-sky-700 transition">
+                    📄 Download Resume
+                </a>
+
+                <!-- Social Links -->
+                <div class="flex justify-center md:justify-start space-x-4 mt-6 ">
+                    <!-- GitHub -->
+                    <a href="https://github.com/ashokrawat3104" target="_blank"
+                        class="text-gray-300 hover:text-white transition hover:drop-shadow-[0_0_6px_#38bdf8] mx-5">
+                        <svg class="w-6 h-6 md:w-7 md:h-7" fill="currentColor" viewBox="0 0 24 24">
+                            <path
+                                d="M12 0C5.375 0 0 5.375 0 12c0 5.303 3.438 9.8 8.205 11.387.6.112.82-.262.82-.583 0-.288-.012-1.244-.018-2.256-3.338.725-4.042-1.612-4.042-1.612-.546-1.387-1.332-1.756-1.332-1.756-1.09-.744.082-.729.082-.729 1.204.084 1.837 1.237 1.837 1.237 1.07 1.834 2.809 1.304 3.495.996.108-.775.418-1.305.762-1.605-2.665-.3-5.466-1.335-5.466-5.933 0-1.31.469-2.382 1.236-3.22-.124-.303-.536-1.524.116-3.176 0 0 1.008-.323 3.3 1.23a11.49 11.49 0 013.006-.404c1.02.005 2.05.138 3.006.404 2.291-1.553 3.297-1.23 3.297-1.23.653 1.653.241 2.874.118 3.176.77.838 1.235 1.91 1.235 3.22 0 4.609-2.804 5.629-5.475 5.921.43.37.823 1.103.823 2.222 0 1.604-.015 2.896-.015 3.289 0 .324.216.7.825.581C20.565 21.796 24 17.3 24 12c0-6.625-5.375-12-12-12z" />
+                        </svg>
+                    </a>
+
+                    <!-- LinkedIn -->
+                    <a href="https://linkedin.com/in/ashok-rawat-7b006433a" target="_blank"
+                        class="text-gray-300 hover:text-white transition hover:drop-shadow-[0_0_6px_#38bdf8] mx-5">
+                        <svg class="w-6 h-6 md:w-7 md:h-7" fill="currentColor" viewBox="0 0 24 24">
+                            <path
+                                d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5v-14c0-2.76-2.24-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.3c-.97 0-1.5-.65-1.5-1.45 0-.8.54-1.45 1.53-1.45.97 0 1.5.65 1.52 1.45 0 .8-.54 1.45-1.55 1.45zm13.5 11.3h-3v-5.5c0-1.4-.5-2.3-1.75-2.3-.95 0-1.5.64-1.75 1.26-.09.22-.11.52-.11.82v5.72h-3s.04-9.29 0-10.25h3v1.45c.4-.61 1.12-1.49 2.72-1.49 1.99 0 3.48 1.3 3.48 4.1v6.19z" />
+                        </svg>
+                    </a>
+                </div>
+
+            </div>
+
+            <!-- Image + Animation Section -->
+            <div
+                class="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden flex items-center justify-center md:w-1/2">
+                <!-- Lottie animation behind the image -->
+                <div id="lottie-home-animation1" class="absolute inset-0 z-0 pointer-events-none"></div>
+                <img src="assets/images/DP2.jpeg" alt="Profile"
+                    class="z-10 w-48 h-48 md:w-60 md:h-60 object-cover rounded-full" />
+            </div>
+        </div>
+    </section>
+
+    <!-- Skill Section -->
+    <section id="skills" class="min-h-screen bg-gradient-to-b from-gray-900 to-black text-white py-16">
+        <div class="max-w-6xl mx-auto px-4">
+            <h2 class="text-4xl font-bold mb-12 text-center text-white">Skills</h2>
+
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-8 text-center">
+
+                <!-- HTML -->
+                <div
+                    class="bg-gray-800 hover:bg-gray-700 transition-all duration-300 shadow-xl rounded-xl p-6 flex flex-col items-center group">
+                    <i
+                        class='bx bxl-html5 text-5xl text-orange-500 group-hover:scale-110 transition-transform duration-300 mb-4'></i>
+                    <p class="font-semibold text-lg group-hover:text-sky-400">HTML</p>
+                </div>
+
+                <!-- CSS -->
+                <div
+                    class="bg-gray-800 hover:bg-gray-700 transition-all duration-300 shadow-xl rounded-xl p-6 flex flex-col items-center group">
+                    <i
+                        class='bx bxl-css3 text-5xl text-blue-500 group-hover:scale-110 transition-transform duration-300 mb-4'></i>
+                    <p class="font-semibold text-lg group-hover:text-sky-400">CSS</p>
+                </div>
+
+                <!-- JavaScript -->
+                <div
+                    class="bg-gray-800 hover:bg-gray-700 transition-all duration-300 shadow-xl rounded-xl p-6 flex flex-col items-center group">
+                    <i
+                        class='bx bxl-javascript text-5xl text-yellow-400 group-hover:scale-110 transition-transform duration-300 mb-4'></i>
+                    <p class="font-semibold text-lg group-hover:text-sky-400">JavaScript</p>
+                </div>
+
+                <!-- Tailwind -->
+                <div
+                    class="bg-gray-800 hover:bg-gray-700 transition-all duration-300 shadow-xl rounded-xl p-6 flex flex-col items-center group">
+                    <i
+                        class='bx bxl-tailwind-css text-5xl text-cyan-400 group-hover:scale-110 transition-transform duration-300 mb-4'></i>
+                    <p class="font-semibold text-lg group-hover:text-sky-400">Tailwind</p>
+                </div>
+
+                <!-- PHP -->
+                <div
+                    class="bg-gray-800 hover:bg-gray-700 transition-all duration-300 shadow-xl rounded-xl p-6 flex flex-col items-center group">
+                    <i
+                        class='bx bxl-php text-5xl text-indigo-400 group-hover:scale-110 transition-transform duration-300 mb-4'></i>
+                    <p class="font-semibold text-lg group-hover:text-sky-400">PHP</p>
+                </div>
+
+                <!-- MySQL -->
+                <div
+                    class="bg-gray-800 hover:bg-gray-700 transition-all duration-300 shadow-xl rounded-xl p-6 flex flex-col items-center group">
+                    <i
+                        class='bx bxs-data text-5xl text-blue-400 group-hover:scale-110 transition-transform duration-300 mb-4'></i>
+                    <p class="font-semibold text-lg group-hover:text-sky-400">MySQL</p>
+                </div>
+
+                <!-- Git -->
+                <div
+                    class="bg-gray-800 hover:bg-gray-700 transition-all duration-300 shadow-xl rounded-xl p-6 flex flex-col items-center group">
+                    <i
+                        class='bx bxl-git text-5xl text-red-500 group-hover:scale-110 transition-transform duration-300 mb-4'></i>
+                    <p class="font-semibold text-lg group-hover:text-sky-400">Git</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Projects Section -->
+    <section id="projects"
+        class="min-h-screen bg-gradient-to-b from-white to-gray-100 dark:from-gray-900 dark:to-black text-gray-900 dark:text-white py-16">
+        <div class="max-w-6xl mx-auto px-4">
+            <h2 class="text-4xl font-bold mb-12 text-center">Projects</h2>
+
+            <div class="grid md:grid-cols-2 gap-8">
+
+                <!-- Tourism Website Project -->
+                <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg hover:shadow-2xl transition duration-300 border-l-4 border-emerald-500"
+                    data-aos="fade-up">
+
+                    <!-- Project Image -->
+                    <img src="assets/images/scHome.png" alt="Tourism Website Screenshot"
+                        class="w-full h-48 object-cover rounded-lg mb-4 shadow-md" />
+
+                    <h3 class="text-2xl font-semibold mb-2">Tourism Website</h3>
+                    <p class="text-gray-700 dark:text-gray-300 mb-4">
+                        A responsive tourism website showcasing the beauty of Uttarakhand. Features include place
+                        listings,
+                        photo gallery, and contact form. Built using <strong>HTML</strong>, <strong>CSS</strong>,
+                        <strong>JavaScript</strong>, <strong>PHP</strong>, and <strong>MySQL</strong>.
+                    </p>
+                    <ul class="list-disc pl-5 text-gray-600 dark:text-gray-400 mb-4">
+                        <li>User-friendly interface with modern UI</li>
+                        <li>Dynamic destinations with database integration</li>
+                        <li>Responsive across devices</li>
+                        <li>Admin panel for adding locations</li>
+                        <li>Gallery with responsive layout</li>
+                        <li>Online booking form (simulated)</li>
+                    </ul>
+
+                    <a href="https://uttarakhandtourism.xyz" target="_blank"
+                        class="inline-block mt-2 text-emerald-600 dark:text-emerald-400 hover:underline">
+                        View Project
+                    </a>
+
+                </div>
+
+                <!-- Snake Game Project -->
+                <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg hover:shadow-2xl transition duration-300 border-l-4 border-yellow-400"
+                    data-aos="fade-up" data-aos-delay="100">
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education"
+        class="min-h-screen bg-gradient-to-r from-indigo-50 via-sky-50 to-white dark:from-gray-900 dark:via-gray-800 dark:to-black text-gray-800 dark:text-gray-100 py-16">
+        <div class="max-w-4xl mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-12 text-gray-900 dark:text-white">Education</h2>
+
+            <div class="space-y-8">
+                <!-- Diploma -->
+                <article
+                    class="bg-white dark:bg-gray-900 p-6 rounded-xl shadow-md border-l-4 border-sky-500 hover:shadow-lg transition duration-300"
+                    data-aos="fade-up">
+                    <h3 class="text-2xl font-semibold text-gray-900 dark:text-white mb-2">
+                        Diploma in Computer Science and Engineering
+                    </h3>
+                    <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+                        Government Polytechnic Kulsari, Chamoli, Uttarakhand <br />
+                        <time datetime="2022">2022</time> – <time datetime="2025">2025</time><br />
+                        Final CGPA: <strong>8</strong>, Grade: <strong>A</strong>
+                    </p>
+                </article>
+
+                <!-- Higher Secondary -->
+                <article
+                    class="bg-white dark:bg-gray-900 p-6 rounded-xl shadow-md border-l-4 border-sky-500 hover:shadow-lg transition duration-300"
+                    data-aos="fade-up">
+                    <h3 class="text-2xl font-semibold text-gray-900 dark:text-white mb-2">
+                        Higher Secondary (10+2)
+                    </h3>
+                    <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+                        G.I.C. Lolti, Chamoli, Uttarakhand <br />
+                        <time datetime="2021">2021</time>
+                    </p>
+                </article>
+
+                <!-- Secondary -->
+                <article
+                    class="bg-white dark:bg-gray-900 p-6 rounded-xl shadow-md border-l-4 border-sky-500 hover:shadow-lg transition duration-300"
+                    data-aos="fade-up">
+                    <h3 class="text-2xl font-semibold text-gray-900 dark:text-white mb-2">
+                        Secondary Education (10th)
+                    </h3>
+                    <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+                        G.I.C. Lolti, Chamoli, Uttarakhand <br />
+                        <time datetime="2019">2019</time>
+                    </p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services"
+        class="min-h-screen bg-gradient-to-b from-gray-100 to-white dark:from-gray-900 dark:to-black text-gray-900 dark:text-white py-16">
+        <div class="max-w-6xl mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-12">Services</h2>
+
+            <div class="grid md:grid-cols-3 gap-8 text-center">
+
+                <!-- Web Development -->
+                <div class="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg hover:shadow-2xl transition duration-300 border-t-4 border-sky-500"
+                    data-aos="fade-up">
+                    <div class="mb-4 text-4xl text-sky-500">
+                        🌐 <!-- Replace with icon if using a library like Lucide, Heroicons -->
+                    </div>
+                    <h3 class="text-2xl font-semibold mb-2">Web Development</h3>
+                    <p class="text-gray-600 dark:text-gray-300">
+                        Building fast, responsive, and modern websites using the latest web technologies.
+                    </p>
+                </div>
+
+                <!-- Frontend Development -->
+                <div class="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg hover:shadow-2xl transition duration-300 border-t-4 border-indigo-500"
+                    data-aos="fade-up">
+                    <div class="mb-4 text-4xl text-indigo-500">💻</div>
+                    <h3 class="text-2xl font-semibold mb-2">Frontend Development</h3>
+                    <p class="text-gray-600 dark:text-gray-300">
+                        Creating responsive and interactive interfaces using HTML, CSS, JavaScript, and modern
+                        frameworks.
+                    </p>
+                </div>
+
+                <!-- Backend Development -->
+                <div class="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg hover:shadow-2xl transition duration-300 border-t-4 border-yellow-500"
+                    data-aos="fade-up" data-aos-delay="100">
+                    <div class="mb-4 text-4xl text-yellow-500">🛠️</div>
+                    <h3 class="text-2xl font-semibold mb-2">Backend Development</h3>
+                    <p class="text-gray-600 dark:text-gray-300">
+                        Building robust server-side applications, databases, and APIs using PHP, MySQL, and Node.js.
+                    </p>
+                </div>
+
+                <!-- UI/UX Design -->
+                <div class="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg hover:shadow-2xl transition duration-300 border-t-4 border-rose-500"
+                    data-aos="fade-up" data-aos-delay="100">
+                    <div class="mb-4 text-4xl text-rose-500">
+                        🎨
+                    </div>
+                    <h3 class="text-2xl font-semibold mb-2">UI/UX Design</h3>
+                    <p class="text-gray-600 dark:text-gray-300">
+                        Crafting intuitive and engaging interfaces with user-focused design principles with HTML, CSS,
+                        JavaScript.
+                    </p>
+                </div>
+
+                <!-- CPanel & Deployment -->
+                <div class="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg hover:shadow-2xl transition duration-300 border-t-4 border-cyan-500"
+                    data-aos="fade-up" data-aos-delay="200">
+                    <div class="mb-4 text-4xl text-cyan-500">🖥️</div>
+                    <h3 class="text-2xl font-semibold mb-2">CPanel & Deployment</h3>
+                    <p class="text-gray-600 dark:text-gray-300">
+                        Experienced in domain setup, hosting configuration, database import, and live deployment using
+                        cPanel and FTP
+                        tools.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="min-h-auto bg-gradient-to-b from-gray-900 via-gray-800 to-black text-white py-20">
+        <div class="max-w-3xl mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-12 drop-shadow-lg">Contact Me</h2>
+
+            <div
+                class="bg-white/10 backdrop-blur-lg border border-white/20 rounded-2xl shadow-xl p-8 space-y-6 text-center">
+                <!-- Email -->
+                <div class="flex items-center justify-center space-x-3">
+                    <span class="text-xl">📧</span>
+                    <p class="text-lg font-medium">
+                        <strong>Email:</strong>
+                        <a href="mailto:ashokrawat@example.com"
+                            class="text-sky-400 hover:underline">ashokrawat@example.com</a>
+                    </p>
+                </div>
+
+                <!-- Phone -->
+                <div class="flex items-center justify-center space-x-3">
+                    <span class="text-xl">📱</span>
+                    <p class="text-lg font-medium">
+                        <strong>Phone:</strong>
+                        <a href="tel:+911234567890" class="text-sky-400 hover:underline">+91-1234567890</a>
+                    </p>
+                </div>
+
+                <!-- Location -->
+                <div class="flex items-center justify-center space-x-3">
+                    <span class="text-xl">📍</span>
+                    <p class="text-lg font-medium">
+                        <strong>Location:</strong> Chamoli, Uttarakhand, India
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="bg-gradient-to-r from-gray-900 via-gray-800 to-black text-white py-8 ">
+        <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-4 text-center">
+
+            <p class="text-sm text-gray-300">&copy; 2025 Ashok Rawat. All rights reserved.</p>
+
+            <div class="flex space-x-6">
+                <!-- GitHub -->
+                <a href="https://github.com/ashokrawat3104" target="_blank"
+                    class="text-gray-400 hover:text-white transition duration-300 hover:drop-shadow-[0_0_6px_#38bdf8]">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                        <path
+                            d="M12 0C5.375 0 0 5.375 0 12c0 5.303 3.438 9.8 8.205 11.387.6.112.82-.262.82-.583 0-.288-.012-1.244-.018-2.256-3.338.725-4.042-1.612-4.042-1.612-.546-1.387-1.332-1.756-1.332-1.756-1.09-.744.082-.729.082-.729 1.204.084 1.837 1.237 1.837 1.237 1.07 1.834 2.809 1.304 3.495.996.108-.775.418-1.305.762-1.605-2.665-.3-5.466-1.335-5.466-5.933 0-1.31.469-2.382 1.236-3.22-.124-.303-.536-1.524.116-3.176 0 0 1.008-.323 3.3 1.23a11.49 11.49 0 013.006-.404c1.02.005 2.05.138 3.006.404 2.291-1.553 3.297-1.23 3.297-1.23.653 1.653.241 2.874.118 3.176.77.838 1.235 1.91 1.235 3.22 0 4.609-2.804 5.629-5.475 5.921.43.37.823 1.103.823 2.222 0 1.604-.015 2.896-.015 3.289 0 .324.216.7.825.581C20.565 21.796 24 17.3 24 12c0-6.625-5.375-12-12-12z" />
+                    </svg>
+                </a>
+
+                <!-- LinkedIn -->
+                <a href="https://linkedin.com/in/ashok-rawat-7b006433a" target="_blank"
+                    class="text-gray-400 hover:text-white transition duration-300 hover:drop-shadow-[0_0_6px_#38bdf8]">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                        <path
+                            d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5v-14c0-2.76-2.24-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.3c-.97 0-1.5-.65-1.5-1.45 0-.8.54-1.45 1.53-1.45.97 0 1.5.65 1.52 1.45 0 .8-.54 1.45-1.55 1.45zm13.5 11.3h-3v-5.5c0-1.4-.5-2.3-1.75-2.3-.95 0-1.5.64-1.75 1.26-.09.22-.11.52-.11.82v5.72h-3s.04-9.29 0-10.25h3v1.45c.4-.61 1.12-1.49 2.72-1.49 1.99 0 3.48 1.3 3.48 4.1v6.19z" />
+                    </svg>
+                </a>
+            </div>
+
+        </div>
+    </footer>
+
+    <!-- <script src="js/gsap.js"></script> -->
+    <script>
+        lucide.createIcons();
+    </script>
+    <script>
+        lottie.loadAnimation({
+            container: document.getElementById('lottie-home-animation1'),
+            renderer: 'svg',
+            loop: true,
+            autoplay: true,
+            path: 'assets/videos/Animation - 1752078501137.json' // Replace with your actual JSON file path
+        });
+        lottie.loadAnimation({
+            container: document.getElementById('lottie-home-animation2'),
+            renderer: 'svg',
+            loop: true,
+            autoplay: true,
+            path: 'assets/videos/Animation - 1752079141377.json' // Replace with your actual JSON file path
+        });
+        lottie.loadAnimation({
+            container: document.getElementById('lottie-home-animation3'),
+            renderer: 'svg',
+            loop: true,
+            autoplay: true,
+            path: 'assets/videos/Animation - 1752078592560.json' // Replace with your actual JSON file path
+        });
+
+        lottie.loadAnimation({
+            container: document.getElementById('lottie-skill-html'),
+            renderer: 'svg',
+            loop: true,
+            autoplay: true,
+            path: 'assets/videos/html.json' // Replace with your actual JSON file path
+        });
+        lottie.loadAnimation({
+            container: document.getElementById('lottie-skill-css'),
+            renderer: 'svg',
+            loop: true,
+            autoplay: true,
+            path: 'assets/videos/css.json' // Replace with your actual JSON file path
+        });
+        lottie.loadAnimation({
+            container: document.getElementById('lottie-skill-js'),
+            renderer: 'svg',
+            loop: true,
+            autoplay: true,
+            path: 'assets/videos/js.json' // Replace with your actual JSON file path
+        });
+
+    </script>
+
+</body>
+
+</html>
