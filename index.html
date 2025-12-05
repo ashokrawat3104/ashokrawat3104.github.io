@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Ashok Rawat — Portfolio (Upgraded)</title>
+  <title>Ashok Rawat — Portfolio</title>
 
   <!-- Tailwind (play CDN) -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -25,14 +25,18 @@
       --glass: rgba(255,255,255,0.06);
       --glass-2: rgba(255,255,255,0.04);
     }
+
     /* subtle gradient text aura */
     .aura {
-      background: linear-gradient(90deg,#38bdf8,#a855f7,#fb7185);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-      text-shadow: 0 6px 20px rgba(168,85,247,0.12);
+        display: inline-block;
+        background: linear-gradient(90deg,#38bdf8,#a855f7,#fb7185);
+        -webkit-background-clip: text !important;
+        background-clip: text !important;
+        /* These two lines FIX THE ISSUE */
+        -webkit-text-fill-color: transparent !important;
+        color: transparent !important;
     }
+
 
     /* progress bar */
     #progress {
@@ -282,7 +286,7 @@
                 <h3 class="text-xl font-semibold">Uttarakhand Tourism Website</h3>
                 <p class="text-slate-400">A full-stack tourism website built with HTML, CSS, JS, PHP and MySQL. Admin panel, gallery, and booking forms.</p>
                 <div class="mt-4 flex gap-3">
-                  <a href="https://uttarakhandtourism.xyz" target="_blank" class="text-sm px-3 py-2 bg-sky-600 rounded">Live</a>
+                  <!-- <a href="https://uttarakhandtourism.xyz" target="_blank" class="text-sm px-3 py-2 bg-sky-600 rounded">Live</a> -->
                   <a href="https://github.com/ashokrawat3104" target="_blank" class="text-sm px-3 py-2 border rounded">Code</a>
                 </div>
               </div>
@@ -339,7 +343,7 @@
 
     // GSAP: simple entrance animations
     gsap.registerPlugin(ScrollTrigger);
-    gsap.from('.aura', {opacity:0, y:20, duration:1, ease:'power3.out'});
+    gsap.from('.aura', {opacity:5, y:20, duration:1, ease:'power3.out'});
     gsap.from('#home .aura', {opacity:0, x:-30, duration:0.9, delay:0.2});
     gsap.utils.toArray('section').forEach((sec) => {
       gsap.from(sec, {
