@@ -1,372 +1,289 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Ashok Rawat — Portfolio</title>
+  <title>Ashok Rawat — Full Stack Developer</title>
 
-  <!-- Tailwind (play CDN) -->
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- Boxicons for icons -->
   <link href="https://cdn.jsdelivr.net/npm/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
 
-  <!-- GSAP -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 
-  <!-- Lottie -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.10.1/lottie.min.js"></script>
 
-  <meta name="description" content="Portfolio of Ashok Rawat — web developer. Upgraded theme with modern animations, responsive nav, GSAP scroll and Lottie integrations.">
   <style>
-    /* small custom styles */
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap');
+
     :root {
-      --glass: rgba(255,255,255,0.06);
-      --glass-2: rgba(255,255,255,0.04);
+      font-family: 'Plus Jakarta Sans', sans-serif;
     }
 
-    /* subtle gradient text aura */
+    body {
+      background-color: #020617; /* Slate 950 */
+    }
+
     .aura {
-        display: inline-block;
-        background: linear-gradient(90deg,#38bdf8,#a855f7,#fb7185);
-        -webkit-background-clip: text !important;
-        background-clip: text !important;
-        /* These two lines FIX THE ISSUE */
-        -webkit-text-fill-color: transparent !important;
-        color: transparent !important;
+      background: linear-gradient(90deg, #38bdf8, #818cf8, #c084fc);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      color: transparent;
     }
 
-    /* progress bar */
     #progress {
       position: fixed;
-      left: 0;
-      top: 0;
-      height: 3px;
-      background: linear-gradient(90deg,#38bdf8,#a855f7);
-      width: 0%;
-      z-index: 60;
+      left: 0; top: 0; height: 3px;
+      background: linear-gradient(90deg, #38bdf8, #a855f7);
+      width: 0%; z-index: 100;
     }
 
-    /* mobile nav backdrop */
-    .nav-backdrop {
-      backdrop-filter: blur(6px);
-      background: rgba(10,11,13,0.55);
+    /* Marquee Animation */
+    @keyframes marquee {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .animate-marquee {
+      display: flex;
+      width: 200%;
+      animation: marquee 25s linear infinite;
+    }
+    .animate-marquee:hover {
+      animation-play-state: paused;
     }
 
-    /* focus outline */
-    a:focus { outline: 2px dashed rgba(99,102,241,0.35); outline-offset: 4px; }
+    .glass-card {
+      background: rgba(255, 255, 255, 0.03);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
   </style>
 </head>
-<body class="antialiased bg-gradient-to-b from-gray-900 via-slate-900 to-black text-slate-100">
+<body class="antialiased text-slate-200">
 
   <div id="progress"></div>
 
-  <!-- Header -->
-  <header class="sticky top-0 z-50">
+  <header id="main-header" class="fixed top-0 w-full z-50 transition-all duration-300 border-b border-transparent">
     <div class="max-w-6xl mx-auto px-4">
       <nav class="flex items-center justify-between py-4">
-        <a href="#home" class="flex items-center gap-3">
-          <div class="w-10 h-10 rounded-full bg-gradient-to-br from-sky-500 to-indigo-600 flex items-center justify-center shadow-md">
-            <span class="font-extrabold text-sm">AR</span>
+        <a href="#home" class="flex items-center gap-3 group">
+          <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-sky-500 to-indigo-600 flex items-center justify-center shadow-lg group-hover:rotate-12 transition-transform">
+            <span class="font-extrabold text-sm text-white">AR</span>
           </div>
           <div class="hidden sm:block">
-            <div class="text-sm font-semibold">Ashok Rawat</div>
-            <div class="text-xs text-slate-400">Web Developer</div>
+            <div class="text-sm font-bold tracking-tight">Ashok Rawat</div>
+            <div class="text-[10px] uppercase tracking-widest text-sky-400 font-semibold leading-none">Developer</div>
           </div>
         </a>
 
-        <!-- Desktop links -->
-        <div class="hidden md:flex items-center gap-6">
-          <a href="#home" class="text-sm hover:text-sky-300 transition">Home</a>
-          <a href="#about" class="text-sm hover:text-sky-300 transition">About</a>
-          <a href="#skills" class="text-sm hover:text-sky-300 transition">Skills</a>
-          <a href="#projects" class="text-sm hover:text-sky-300 transition">Projects</a>
-          <a href="#contact" class="text-sm hover:text-sky-300 transition">Contact</a>
-          <a href="assets/Ashok_Rawat_Resume.pdf" class="ml-2 inline-flex items-center gap-2 px-3 py-2 bg-gradient-to-r from-sky-600 to-indigo-600 rounded-lg text-xs font-medium shadow hover:opacity-95" download>
-            <i class='bx bx-download'></i> Resume
-          </a>
+        <div class="hidden md:flex items-center gap-8">
+          <a href="#about" class="text-sm font-medium text-slate-400 hover:text-white transition-colors">About</a>
+          <a href="#skills" class="text-sm font-medium text-slate-400 hover:text-white transition-colors">Skills</a>
+          <a href="#projects" class="text-sm font-medium text-slate-400 hover:text-white transition-colors">Projects</a>
+          <a href="#contact" class="px-5 py-2.5 bg-sky-600/10 hover:bg-sky-600/20 border border-sky-500/20 rounded-full text-sm font-semibold text-sky-400 transition-all backdrop-blur-md">Let's Talk</a>
         </div>
 
-        <!-- Mobile menu button -->
-        <button id="btn-mobile" aria-label="Open menu" class="md:hidden p-2 rounded-lg bg-black/30 nav-backdrop">
-          <i id="btn-icon" class='bx bx-menu text-2xl'></i>
-        </button>
+        <button id="btn-mobile" class="md:hidden p-2 text-2xl"><i class='bx bx-menu-alt-right'></i></button>
       </nav>
-    </div>
-
-    <!-- Mobile nav (hidden by default) -->
-    <div id="mobile-panel" class="fixed inset-0 z-40 hidden">
-      <div class="absolute inset-0 nav-backdrop" id="mobile-backdrop"></div>
-      <div class="absolute right-0 top-0 h-full w-72 bg-gradient-to-b from-slate-900 to-black p-6 shadow-2xl">
-        <div class="flex items-center justify-between mb-6">
-          <div>
-            <div class="font-bold text-lg">Ashok Rawat</div>
-            <div class="text-xs text-slate-400">Web Developer</div>
-          </div>
-          <button id="mobile-close" class="p-2 rounded-md">
-            <i class='bx bx-x text-2xl'></i>
-          </button>
-        </div>
-        <nav class="flex flex-col gap-4">
-          <a href="#home" class="py-2 px-2 rounded hover:bg-white/5">Home</a>
-          <a href="#about" class="py-2 px-2 rounded hover:bg-white/5">About</a>
-          <a href="#skills" class="py-2 px-2 rounded hover:bg-white/5">Skills</a>
-          <a href="#projects" class="py-2 px-2 rounded hover:bg-white/5">Projects</a>
-          <a href="#contact" class="py-2 px-2 rounded hover:bg-white/5">Contact</a>
-        </nav>
-
-        <div class="mt-6 border-t border-white/5 pt-4">
-          <div class="flex gap-3">
-            <a href="https://github.com/ashokrawat3104" target="_blank" class="p-2 rounded hover:bg-white/5">GitHub</a>
-            <a href="https://linkedin.com/in/ashok-rawat-7b006433a" target="_blank" class="p-2 rounded hover:bg-white/5">LinkedIn</a>
-          </div>
-        </div>
-      </div>
     </div>
   </header>
 
-  <!-- HERO -->
-  <main class="pt-6">
-    <section id="home" class="min-h-[80vh] flex items-center">
-      <div class="max-w-6xl mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-        <div class="space-y-6">
-          <h1 class="text-4xl sm:text-5xl font-extrabold leading-tight">
-            <span class="block aura">Hi, I'm Ashok Rawat</span>
-            <span class="block text-slate-300 text-xl mt-2">Full-stack Web Developer — building beautiful & fast websites.</span>
-          </h1>
+  <section id="home" class="relative min-h-screen flex items-center pt-20 overflow-hidden">
+    <div class="absolute top-0 left-1/4 w-96 h-96 bg-sky-500/10 rounded-full blur-[120px] -z-10"></div>
+    <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-indigo-500/10 rounded-full blur-[120px] -z-10"></div>
 
-          <p class="text-slate-400 max-w-xl">
-            I design and build modern, responsive web experiences using HTML, CSS, JavaScript, React, Node.js and PHP. I love clean UI, performance and shipping projects that solve real problems.
-          </p>
-
-          <div class="flex flex-wrap gap-4 mt-4">
-            <a href="#projects" class="inline-flex items-center gap-2 px-5 py-3 bg-gradient-to-r from-sky-600 to-indigo-600 rounded-lg shadow hover:scale-105 transition">See Projects <i class='bx bx-right-arrow-alt'></i></a>
-            <a href="#contact" class="inline-flex items-center gap-2 px-5 py-3 border border-white/10 rounded-lg hover:bg-white/5 transition">Contact Me</a>
-            <a href="assets/Ashok_Rawat_Resume.pdf" download class="inline-flex items-center gap-2 px-4 py-3 rounded-lg bg-white/6 hover:bg-white/8 transition">📄 Resume</a>
-          </div>
-
-          <div class="mt-6 flex gap-4">
-            <a href="https://github.com/ashokrawat3104" target="_blank" class="text-slate-300 hover:text-white">GitHub</a>
-            <a href="https://linkedin.com/in/ashok-rawat-7b006433a" target="_blank" class="text-slate-300 hover:text-white">LinkedIn</a>
-          </div>
+    <div class="max-w-6xl mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-12 items-center w-full">
+      <div class="space-y-8">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-500/10 border border-sky-500/20 text-sky-400 text-xs font-bold tracking-widest uppercase">
+          <span class="relative flex h-2 w-2">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-2 w-2 bg-sky-500"></span>
+          </span>
+          Open to Opportunities
         </div>
 
-        <!-- Lottie + portrait -->
-        <div class="flex items-center justify-center relative">
-          <div id="lottie-hero" class="w-80 h-80"></div>
-          <!-- profile image overlay if available -->
-          <img src="assets/images/DP2.jpeg" alt="Ashok" class="absolute w-40 h-40 rounded-full object-cover ring-4 ring-white/10 shadow-xl" onerror="this.style.display='none'">
+        <h1 class="text-5xl md:text-7xl font-extrabold leading-[1.1] tracking-tight">
+          Crafting <span class="aura">Digital</span> <br>Experiences.
+        </h1>
+
+        <p class="text-lg text-slate-400 max-w-lg leading-relaxed">
+          Full-stack Web Developer specializing in building <span class="text-white">high-performance applications</span>. I turn complex problems into elegant, pixel-perfect solutions.
+        </p>
+
+        <div class="flex flex-wrap gap-4">
+          <a href="#projects" class="px-8 py-4 bg-sky-600 hover:bg-sky-500 text-white rounded-xl font-bold shadow-lg shadow-sky-900/20 transition-all hover:-translate-y-1">View Projects</a>
+          <a href="assets/Ashok_Rawat_Resume.pdf" download class="px-8 py-4 bg-white/5 hover:bg-white/10 border border-white/10 rounded-xl font-bold transition-all">Download CV</a>
         </div>
       </div>
-    </section>
 
-    <!-- ABOUT -->
-    <section id="about" class="py-20">
-        <div class="max-w-5xl mx-auto px-4">
-            <div class="grid md:grid-cols-2 gap-8 items-center">
+      <div class="relative flex justify-center">
+        <div id="lottie-hero" class="w-full max-w-md opacity-50"></div>
+        <img src="assets/images/DP2.jpeg" alt="Ashok" class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 md:w-64 md:h-64 rounded-2xl object-cover border-4 border-slate-900 shadow-2xl rotate-3 hover:rotate-0 transition-transform duration-500" onerror="this.style.display='none'">
+      </div>
+    </div>
+  </section>
 
-                <div>
-                    <h2 class="text-3xl font-bold mb-4">About Me</h2>
-                    <p class="text-slate-400 mb-4">
-                        I’m a passionate Full-Stack Web Developer with strong knowledge of HTML, CSS, JavaScript, PHP, MySQL
-                        and modern tools like Tailwind & Git.
-                        I enjoy building fast, responsive, problem-solving web applications and constantly learning new
-                        technologies.
-                    </p>
+  <div class="py-10 border-y border-white/5 bg-slate-900/20">
+    <div class="overflow-hidden whitespace-nowrap">
+      <div class="animate-marquee flex gap-12 items-center">
+        <span class="text-2xl font-black text-slate-700 flex items-center gap-3"><i class='bx bxl-html5 text-orange-500'></i> HTML5</span>
+        <span class="text-2xl font-black text-slate-700 flex items-center gap-3"><i class='bx bxl-tailwind-css text-sky-400'></i> TAILWIND</span>
+        <span class="text-2xl font-black text-slate-700 flex items-center gap-3"><i class='bx bxl-javascript text-yellow-400'></i> JAVASCRIPT</span>
+        <span class="text-2xl font-black text-slate-700 flex items-center gap-3"><i class='bx bxl-react text-sky-500'></i> REACT.JS</span>
+        <span class="text-2xl font-black text-slate-700 flex items-center gap-3"><i class='bx bxl-php text-indigo-400'></i> PHP</span>
+        <span class="text-2xl font-black text-slate-700 flex items-center gap-3"><i class='bx bxl-mongodb text-green-500'></i> MONGODB</span>
+        <span class="text-2xl font-black text-slate-700 flex items-center gap-3"><i class='bx bxl-html5 text-orange-500'></i> HTML5</span>
+        <span class="text-2xl font-black text-slate-700 flex items-center gap-3"><i class='bx bxl-tailwind-css text-sky-400'></i> TAILWIND</span>
+        <span class="text-2xl font-black text-slate-700 flex items-center gap-3"><i class='bx bxl-javascript text-yellow-400'></i> JAVASCRIPT</span>
+        <span class="text-2xl font-black text-slate-700 flex items-center gap-3"><i class='bx bxl-react text-sky-500'></i> REACT.JS</span>
+        <span class="text-2xl font-black text-slate-700 flex items-center gap-3"><i class='bx bxl-php text-indigo-400'></i> PHP</span>
+        <span class="text-2xl font-black text-slate-700 flex items-center gap-3"><i class='bx bxl-mongodb text-green-500'></i> MONGODB</span>
+      </div>
+    </div>
+  </div>
 
-                    <ul class="text-slate-300 space-y-2">
-                        <li>🎓 <b>BCA (Bachelor of Computer Applications)</b> — IGNOU Delhi (2025 – Present)</li>
-                        <li>🎓 Diploma in CSE (2022–2025) — CGPA 8.0</li>
-                        <li>💼 Web Development Intern — <b>APK Web Tech</b> (2025)</li>
-                        <li>⚡ Tech Stack: HTML, CSS, JS, PHP, MySQL, React, Tailwind, Git</li>
-                        <li>🚀 Interested in backend development, APIs & scalable systems</li>
-                    </ul>
-                </div>
-
-                <div class="bg-gradient-to-br from-white/3 to-white/2 p-6 rounded-xl shadow-inner border border-white/6">
-                    <h3 class="font-semibold mb-2">Quick Facts</h3>
-                    <div class="grid grid-cols-2 gap-4 text-sm">
-                        <div><strong>Location</strong>
-                            <div class="text-slate-400">New Delhi, India</div>
+  <section id="about" class="py-24">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="grid md:grid-cols-2 gap-16 items-start">
+        <div class="space-y-6">
+          <h2 class="text-4xl font-bold">About Me</h2>
+          <p class="text-slate-400 leading-relaxed text-lg">
+            I am a New Delhi based developer currently pursuing my <span class="text-white">BCA from IGNOU</span>. With a strong foundation in Computer Science Engineering, I specialize in bridging the gap between design and robust backend logic.
+          </p>
+          <div class="grid grid-cols-2 gap-4">
+            <div class="p-4 rounded-xl glass-card">
+              <h4 class="font-bold text-sky-400">8.0 CGPA</h4>
+              <p class="text-xs text-slate-500 uppercase">Diploma in CSE</p>
+            </div>
+            <div class="p-4 rounded-xl glass-card">
+              <h4 class="font-bold text-sky-400">APK Web</h4>
+              <p class="text-xs text-slate-500 uppercase">Internship</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="space-y-8">
+            <div class="p-6 rounded-2xl glass-card border-l-4 border-l-sky-500">
+                <h3 class="font-bold mb-4 flex items-center gap-2"><i class='bx bx-briefcase'></i> Experience</h3>
+                <div class="space-y-6">
+                    <div>
+                        <div class="flex justify-between items-center mb-1">
+                            <span class="font-bold">Web Dev Intern — APK Web Tech</span>
+                            <span class="text-xs text-sky-400">2025</span>
                         </div>
-                        <div><strong>Email</strong>
-                            <div class="text-slate-400">ashokjandhari@gmail.com</div>
+                        <p class="text-sm text-slate-500 leading-snug">Worked on PHP/MySQL modules and UI optimization for real-world client workflows.</p>
+                    </div>
+                    <div>
+                        <div class="flex justify-between items-center mb-1">
+                            <span class="font-bold">Freelancer — Squad League</span>
+                            <span class="text-xs text-sky-400">2025</span>
                         </div>
-                        <div><strong>Internship</strong>
-                            <div class="text-slate-400">APK Web Tech</div>
-                        </div>
-                        <div><strong>Education</strong>
-                            <div class="text-slate-400">BCA + Diploma CSE</div>
-                        </div>
+                        <p class="text-sm text-slate-500 leading-snug">Built a full eSports platform using React, Node.js and MongoDB.</p>
                     </div>
                 </div>
-
             </div>
-        </div>
-    </section>
-
-    <!-- EXPERIENCE -->
-    <section id="experience" class="py-20 bg-gradient-to-b from-slate-900 to-black">
-        <div class="max-w-6xl mx-auto px-4">
-    
-            <h2 class="text-3xl font-bold mb-10">Experience</h2>
-    
-            <div class="space-y-6">
-    
-                <!-- APK Web Tech -->
-                <div class="bg-white/5 p-6 rounded-xl border border-white/10 shadow-md">
-                    <h3 class="text-xl font-semibold">Web Development Intern — APK Web Tech</h3>
-                    <p class="text-slate-400 text-sm mb-3">From 25 August 2025 • New Delhi</p>
-                    <ul class="list-disc pl-5 space-y-1 text-slate-300 text-sm">
-                        <li>Worked on frontend and backend modules under senior developers.</li>
-                        <li>Fixed UI bugs, improved responsiveness and optimized website performance.</li>
-                        <li>Learnt PHP, MySQL, Laravel basics, and real-world development workflows.</li>
-                        <li>Performed testing, validation, and deployment assistance.</li>
-                    </ul>
-                </div>
-    
-                <!-- Freelancing / Additional Experience -->
-                <div class="bg-white/5 p-6 rounded-xl border border-white/10 shadow-md">
-                    <h3 class="text-xl font-semibold">Freelance Developer — Squad League Project</h3>
-                    <p class="text-slate-400 text-sm mb-3">July 2025 – August 2025</p>
-                    <ul class="list-disc pl-5 space-y-1 text-slate-300 text-sm">
-                        <li>Designed and developed a full eSports tournament platform.</li>
-                        <li>Implemented authentication, team registration & dynamic dashboards.</li>
-                        <li>Worked with React, Node.js, Express & MongoDB.</li>
-                    </ul>
-                </div>
-    
-            </div>
-        </div>
-    </section>
-
-    <!-- SKILLS -->
-    <section id="skills" class="py-20 bg-gradient-to-b from-slate-900 to-black">
-      <div class="max-w-6xl mx-auto px-4">
-        <h2 class="text-3xl font-bold mb-8">Skills</h2>
-        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-6">
-          <!-- preserve existing images if available -->
-          <div class="p-4 rounded-xl bg-white/3 text-center">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" class="mx-auto w-16 h-16 mb-2" alt="">
-            <div class="text-sm">HTML</div>
-          </div>
-          <div class="p-4 rounded-xl bg-white/3 text-center">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" class="mx-auto w-16 h-16 mb-2" alt="">
-            <div class="text-sm">CSS</div>
-          </div>
-          <div class="p-4 rounded-xl bg-white/3 text-center">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" class="mx-auto w-16 h-16 mb-2" alt="">
-            <div class="text-sm">JavaScript</div>
-          </div>
-          <div class="p-4 rounded-xl bg-white/3 text-center">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" class="mx-auto w-16 h-16 mb-2" alt="">
-            <div class="text-sm">PHP</div>
-          </div>
-          <div class="p-4 rounded-xl bg-white/3 text-center">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" class="mx-auto w-16 h-16 mb-2" alt="">
-            <div class="text-sm">MySQL</div>
-          </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- PROJECTS -->
-    <section id="projects" class="py-20">
-      <div class="max-w-6xl mx-auto px-4">
-        <h2 class="text-3xl font-bold mb-8">Featured Projects</h2>
+  <section id="projects" class="py-24 bg-slate-900/30">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="flex justify-between items-end mb-12">
+        <div>
+            <h2 class="text-4xl font-bold mb-2">Projects</h2>
+            <p class="text-slate-500 uppercase tracking-widest text-xs font-bold">Featured Works</p>
+        </div>
+        <a href="https://github.com/ashokrawat3104" target="_blank" class="text-sky-400 font-bold flex items-center gap-2">More on GitHub <i class='bx bx-right-arrow-alt'></i></a>
+      </div>
 
-        <div class="grid md:grid-cols-2 gap-8">
-          <!-- Project 1 -->
-          <article class="bg-gradient-to-br from-white/3 to-white/2 p-6 rounded-xl shadow-md border border-white/6">
-            <div class="flex flex-col md:flex-row gap-4">
-              <img src="assets/images/scHome.png" alt="Project" class="w-full md:w-48 h-36 object-cover rounded-lg shadow">
-              <div>
-                <h3 class="text-xl font-semibold">Uttarakhand Tourism Website</h3>
-                <p class="text-slate-400">A full-stack tourism website built with HTML, CSS, JS, PHP and MySQL. Admin panel, gallery, and booking forms.</p>
-                <div class="mt-4 flex gap-3">
-                  <!-- <a href="https://uttarakhandtourism.xyz" target="_blank" class="text-sm px-3 py-2 bg-sky-600 rounded">Live</a> -->
-                  <a href="https://github.com/ashokrawat3104" target="_blank" class="text-sm px-3 py-2 border rounded">Code</a>
-                </div>
+      <div class="grid md:grid-cols-2 gap-8">
+        <article class="group glass-card rounded-3xl overflow-hidden hover:border-sky-500/50 transition-all duration-500">
+          <div class="aspect-video overflow-hidden">
+            <img src="assets/images/scHome.png" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt="Tourism">
+          </div>
+          <div class="p-8">
+            <div class="flex gap-2 mb-4">
+              <span class="text-[10px] font-bold px-2 py-1 rounded bg-sky-500/10 text-sky-400 uppercase tracking-wider">Full Stack</span>
+              <span class="text-[10px] font-bold px-2 py-1 rounded bg-white/5 text-slate-400 uppercase tracking-wider">PHP / MySQL</span>
+            </div>
+            <h3 class="text-2xl font-bold mb-3 group-hover:text-sky-400 transition-colors">Uttarakhand Tourism</h3>
+            <p class="text-slate-400 text-sm mb-6 leading-relaxed">A comprehensive tourism portal featuring booking systems, an administrative dashboard, and dynamic gallery modules.</p>
+            <div class="flex gap-4">
+                <a href="https://github.com/ashokrawat3104" target="_blank" class="text-sm font-bold flex items-center gap-1 hover:text-sky-400"><i class='bx bxl-github text-xl'></i> Source Code</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="group glass-card rounded-3xl overflow-hidden hover:border-sky-500/50 transition-all duration-500">
+            <div class="aspect-video overflow-hidden">
+              <img src="assets/images/imgSankeGame.png" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt="Game">
+            </div>
+            <div class="p-8">
+              <div class="flex gap-2 mb-4">
+                <span class="text-[10px] font-bold px-2 py-1 rounded bg-yellow-500/10 text-yellow-500 uppercase tracking-wider">Game Dev</span>
+                <span class="text-[10px] font-bold px-2 py-1 rounded bg-white/5 text-slate-400 uppercase tracking-wider">Vanilla JS</span>
+              </div>
+              <h3 class="text-2xl font-bold mb-3 group-hover:text-sky-400 transition-colors">Retro Snake Engine</h3>
+              <p class="text-slate-400 text-sm mb-6 leading-relaxed">Built with high-performance Vanilla JS, featuring local storage high scores and mobile-responsive swipe controls.</p>
+              <div class="flex gap-4">
+                  <a href="projects/Snake_Game/index.html" class="px-4 py-2 bg-yellow-500 text-black rounded-lg text-sm font-bold flex items-center gap-2 transition-transform hover:scale-95"><i class='bx bx-play-circle text-lg'></i> Play Now</a>
               </div>
             </div>
           </article>
-
-          <!-- Project 2 -->
-          <article class="bg-gradient-to-br from-white/3 to-white/2 p-6 rounded-xl shadow-md border border-white/6">
-            <div class="flex flex-col md:flex-row gap-4">
-              <img src="assets/images/imgSankeGame.png" alt="Project" class="w-full md:w-48 h-36 object-cover rounded-lg shadow">
-              <div>
-                <h3 class="text-xl font-semibold">Snake Game</h3>
-                <p class="text-slate-400">Classic snake game built with vanilla JS. Responsive grid, local high score and smooth controls.</p>
-                <div class="mt-4 flex gap-3">
-                  <a href="projects/Snake_Game/index.html" target="_blank" class="text-sm px-3 py-2 bg-yellow-400 rounded">Play</a>
-                </div>
-              </div>
-            </div>
-          </article>
-        </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- CONTACT -->
-    <section id="contact" class="py-20 bg-gradient-to-b from-slate-900 to-black">
-      <div class="max-w-3xl mx-auto px-4">
-        <h2 class="text-3xl font-bold mb-6">Contact</h2>
-        <div class="bg-white/6 p-8 rounded-xl">
-          <p class="text-slate-300 mb-4">Email: <a href="mailto:ashokjandhari@gmail.com" class="text-sky-300">ashokjandhari@gmail.com</a></p>
-          <p class="text-slate-300 mb-4">Phone: <a href="tel:+919997138823" class="text-sky-300">+91 9997138823</a></p>
-          <p class="text-slate-300">Location: Chamoli, Uttarakhand, India</p>
-        </div>
+  <section id="contact" class="py-24">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <h2 class="text-5xl font-black mb-6">Let's work together.</h2>
+      <p class="text-slate-400 text-lg mb-12">I'm currently looking for new opportunities in Web Development. Whether you have a question or just want to say hi, my inbox is always open.</p>
+      
+      <div class="grid sm:grid-cols-3 gap-6 mb-12">
+        <a href="mailto:ashokjandhari@gmail.com" class="p-6 rounded-2xl glass-card hover:bg-sky-600/10 transition-colors">
+            <i class='bx bx-envelope text-3xl text-sky-400 mb-3'></i>
+            <div class="font-bold">Email</div>
+            <div class="text-xs text-slate-500">ashokjandhari@gmail.com</div>
+        </a>
+        <a href="tel:+919997138823" class="p-6 rounded-2xl glass-card hover:bg-sky-600/10 transition-colors">
+            <i class='bx bx-phone text-3xl text-sky-400 mb-3'></i>
+            <div class="font-bold">Phone</div>
+            <div class="text-xs text-slate-500">+91 9997138823</div>
+        </a>
+        <a href="https://linkedin.com/in/ashok-rawat-7b006433a" class="p-6 rounded-2xl glass-card hover:bg-sky-600/10 transition-colors">
+            <i class='bx bxl-linkedin text-3xl text-sky-400 mb-3'></i>
+            <div class="font-bold">LinkedIn</div>
+            <div class="text-xs text-slate-500">Connect with me</div>
+        </a>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <footer class="py-12">
-      <div class="max-w-6xl mx-auto px-4 text-center text-slate-400">
-        © 2025 Ashok Rawat · Built with care
+  <footer class="py-12 border-t border-white/5">
+    <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-6">
+      <div class="text-slate-500 text-sm">© 2026 Ashok Rawat. Built with Tailwind & Passion.</div>
+      <div class="flex gap-6">
+        <a href="https://github.com/ashokrawat3104" target="_blank" class="text-2xl hover:text-white transition-colors"><i class='bx bxl-github'></i></a>
+        <a href="https://linkedin.com/in/ashok-rawat-7b006433a" target="_blank" class="text-2xl hover:text-white transition-colors"><i class='bx bxl-linkedin'></i></a>
       </div>
-    </footer>
-  </main>
+    </div>
+  </footer>
 
-  <!-- Scripts: mobile nav, GSAP, Lottie, scroll progress -->
   <script>
-    // Mobile nav open/close
-    const btn = document.getElementById('btn-mobile');
-    const panel = document.getElementById('mobile-panel');
-    const closeBtn = document.getElementById('mobile-close');
-    const backdrop = document.getElementById('mobile-backdrop');
-    btn?.addEventListener('click', () => panel.classList.remove('hidden'));
-    closeBtn?.addEventListener('click', () => panel.classList.add('hidden'));
-    backdrop?.addEventListener('click', () => panel.classList.add('hidden'));
-    document.querySelectorAll('#mobile-panel a').forEach(a => a.addEventListener('click', () => panel.classList.add('hidden')));
-
-    // GSAP: simple entrance animations
-    gsap.registerPlugin(ScrollTrigger);
-    gsap.from('.aura', {opacity:5, y:20, duration:1, ease:'power3.out'});
-    gsap.from('#home .aura', {opacity:0, x:-30, duration:0.9, delay:0.2});
-    gsap.utils.toArray('section').forEach((sec) => {
-      gsap.from(sec, {
-        scrollTrigger: { trigger: sec, start: 'top 80%' },
-        opacity: 0,
-        y: 40,
-        duration: 0.8,
-        ease: 'power2.out',
-        stagger: 0.1
-      });
+    // Header Scroll Logic
+    window.addEventListener('scroll', () => {
+      const header = document.getElementById('main-header');
+      if (window.scrollY > 50) {
+        header.classList.add('bg-slate-950/80', 'backdrop-blur-xl', 'border-white/10', 'py-2');
+        header.classList.remove('py-4', 'border-transparent');
+      } else {
+        header.classList.remove('bg-slate-950/80', 'backdrop-blur-xl', 'border-white/10', 'py-2');
+        header.classList.add('py-4', 'border-transparent');
+      }
     });
-
-    // Lottie: try to find a hero lottie or fallback to subtle animation
-    try {
-      lottie.loadAnimation({
-        container: document.getElementById('lottie-hero'),
-        renderer: 'svg',
-        loop: true,
-        autoplay: true,
-        path: 'assets/videos/Animation - 1752078501137.json'
-      });
-    } catch(e){
-      console.warn('Lottie failed to load hero animation:', e);
-    }
 
     // Scroll progress
     const prog = document.getElementById('progress');
@@ -375,6 +292,32 @@
       const percent = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
       prog.style.width = percent + '%';
     });
+
+    // Animations
+    gsap.registerPlugin(ScrollTrigger);
+
+    gsap.from('.aura', {opacity:0, y:30, duration:1.2, ease:'power4.out'});
+    
+    gsap.utils.toArray('section').forEach((sec) => {
+      gsap.from(sec, {
+        scrollTrigger: { trigger: sec, start: 'top 85%' },
+        opacity: 0,
+        y: 50,
+        duration: 1,
+        ease: 'power3.out'
+      });
+    });
+
+    // Lottie
+    try {
+      lottie.loadAnimation({
+        container: document.getElementById('lottie-hero'),
+        renderer: 'svg',
+        loop: true,
+        autoplay: true,
+        path: 'assets/videos/Animation - 1752078501137.json'
+      });
+    } catch(e) { console.warn('Lottie skipped'); }
   </script>
 </body>
 </html>
